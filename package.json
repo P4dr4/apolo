@@ -1,0 +1,29 @@
+{
+  "name": "apolo",
+  "version": "1.0.0",
+  "description": "apolo description",
+  "keywords": [
+    "Github"
+  ],
+  "homepage": "https://github.com/P4dr4/apolo#readme",
+  "bugs": {
+    "url": "https://github.com/P4dr4/apolo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/P4dr4/apolo.git"
+  },
+  "license": "ISC",
+  "author": "Pedro Accarini Barros de Azevedo",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^27.0.0",
+    "@babel/preset-env": "^7.15.0",
+    "babel-jest": "^27.0.0"
+  }
+}
