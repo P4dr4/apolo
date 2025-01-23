@@ -3,7 +3,7 @@ description: 'A simple Node.js CI action to run tests'
 author: 'Pedro Accarini Barros de Azevedo'
 
 branding:
-  icon: 'arrow-up'
+  icon: 'award'
   color: 'green'
 
 inputs:
