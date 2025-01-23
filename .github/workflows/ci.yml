@@ -11,7 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Run Node.js CI Action
-        uses: ./.github/actions/action.yml@main
+        uses: ./.github/actions/action.yml
         with:
           node-version: '14'
