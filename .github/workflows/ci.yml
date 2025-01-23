@@ -15,6 +15,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run Node.js CI Action
-        uses: ./.github/actions/action.yml
+        uses: ./.github/actions/action.yml@main
         with:
           node-version: '14'
