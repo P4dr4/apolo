@@ -2,10 +2,6 @@ name: 'Node.js CI Action'
 description: 'A simple Node.js CI action to run tests'
 author: 'Pedro Accarini Barros de Azevedo'
 
-branding:
-  icon: 'package'
-  color: 'green'
-
 inputs:
   node-version:
     description: 'Node.js version to use'
@@ -30,3 +26,7 @@ runs:
     - name: 'Run tests'
       shell: bash
       run: npm test
+
+branding:
+  icon: 'package'
+  color: 'green'
