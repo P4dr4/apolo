@@ -1,0 +1,32 @@
+name: 'Node.js CI Action'
+description: 'A simple Node.js CI action to run tests'
+author: 'Pedro Accarini Barros de Azevedo'
+
+branding:
+  icon: 'arrow-up'
+  color: 'green'
+
+inputs:
+  node-version:
+    description: 'Node.js version to use'
+    required: true
+    default: '14'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Checkout repository'
+      uses: actions/checkout@v2
+
+    - name: 'Setup Node.js'
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ inputs['node-version'] }}
+
+    - name: 'Install dependencies'
+      shell: bash
+      run: npm install
+
+    - name: 'Run tests'
+      shell: bash
+      run: npm test
