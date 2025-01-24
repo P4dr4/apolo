@@ -26,7 +26,5 @@ runs:
       run: |
         # Authenticate with npm
         echo "//registry.npmjs.org/:_authToken=${{ inputs.npm-token }}" > ~/.npmrc
-        # Login to npm
-        npm login --registry=https://registry.npmjs.org --scope=@$GITHUB_REPOSITORY_OWNER
         # Publish the package
         npm publish --access public
