@@ -13,12 +13,12 @@ on:
 
 jobs:
   build:
-    name: Build and Test
+    name: Continuous Integration and Publish
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Run Node.js CI Action
         uses: ./.github/actions/ci

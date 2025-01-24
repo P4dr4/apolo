@@ -16,10 +16,10 @@ runs:
   using: 'composite'
   steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: '20'
 
@@ -30,8 +30,8 @@ runs:
     - name: Publish to npm
       shell: bash
       run: |
-        # npm Login
+        # Authenticate with NPM
+        echo -e "${{ inputs.npm-username }}\n${{ inputs.npm-password }}\n${{ inputs.npm-email }}" | npm adduser
         echo -e "${{ inputs.npm-username }}\n${{ inputs.npm-password }}\n${{ inputs.npm-email }}" | npm login
-        npm adduser
         # Publish the package
         npm publish --access public
