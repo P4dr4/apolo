@@ -1,9 +1,15 @@
 name: 'Publish to npm'
-description: 'Publish the package to npm'
+description: 'Action to publish package to npm'
 
 inputs:
-  npm-token:
-    description: 'NPM token'
+  npm-username:
+    description: 'NPM username'
+    required: true
+  npm-password:
+    description: 'NPM password'
+    required: true
+  npm-email:
+    description: 'NPM email'
     required: true
 
 runs:
@@ -21,16 +27,10 @@ runs:
       shell: bash
       run: npm install
 
-    - name: Verify npm user
-      shell: bash
-      run: npm whoami
-      env:
-        NODE_AUTH_TOKEN: ${{ inputs.npm-token }}
-
     - name: Publish to npm
       shell: bash
       run: |
-        # Authenticate with npm
-        echo "//registry.npmjs.org/:_authToken=${{ inputs.npm-token }}" > ~/.npmrc
+        # npm Login
+        echo -e "${{ inputs.npm-username }}\n${{ inputs.npm-password }}\n${{ inputs.npm-email }}" | npm login
         # Publish the package
-        npm publish
+        npm publish --access public

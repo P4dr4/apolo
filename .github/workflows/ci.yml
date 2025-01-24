@@ -28,4 +28,7 @@ jobs:
       - name: Publish artifact to npm
         uses: ./.github/actions/publish
         with:
+          npm-username: ${{ secrets.NPM_USERNAME }}
+          npm-password: ${{ secrets.NPM_PASSWORD }}
+          npm-email: ${{ secrets.NPM_EMAIL }}
           npm-token: ${{ secrets.NPM_TOKEN }}
