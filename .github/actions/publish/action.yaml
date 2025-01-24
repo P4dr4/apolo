@@ -27,11 +27,16 @@ runs:
       shell: bash
       run: npm install
 
+    - name: Install npm-cli-login
+      shell: bash
+      run: npm install -g npm-cli-login
+
     - name: Publish to npm
       shell: bash
       run: |
-        # Authenticate with NPM
+        # Authenticate with NPM using npm-cli-login
         echo -e "${{ inputs.npm-username }}\n${{ inputs.npm-password }}\n${{ inputs.npm-email }}" | npm adduser
         echo -e "${{ inputs.npm-username }}\n${{ inputs.npm-password }}\n${{ inputs.npm-email }}" | npm login
+        npm-cli-login -u "${{ inputs.npm-username }}" -p "${{ inputs.npm-password }}" -e "${{ inputs.npm-email }}"
         # Publish the package
         npm publish --access public
