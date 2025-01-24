@@ -26,4 +26,4 @@ runs:
       run: |
         # Authenticate with npm
         echo "//registry.npmjs.org/:_authToken=${{ inputs.npm-token }}" > ~/.npmrc
-        npm publish
+        npm publish --access public
