@@ -18,4 +18,9 @@ jobs:
       - name: Run Node.js CI Action
         uses: ./.github/actions/ci
         with:
-          node-version: '14'
+          node-version: '20'
+      
+      - name: Publish artifact to npm
+        uses: ./.github/actions/publish
+        with:
+          npm-token: ${{ secrets.NPM_TOKEN }}
