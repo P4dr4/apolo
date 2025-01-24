@@ -11,6 +11,9 @@ inputs:
   npm-email:
     description: 'NPM email'
     required: true
+  npm-token:
+    description: 'NPM token'
+    required: true  
 
 runs:
   using: 'composite'
@@ -30,6 +33,10 @@ runs:
     - name: Install npm-cli-login
       shell: bash
       run: npm install -g npm-cli-login
+    
+    - name: Authenticate to npm
+      shell: bash
+      run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
     - name: Publish to npm
       shell: bash
