@@ -31,4 +31,3 @@ jobs:
           npm-username: ${{ secrets.NPM_USERNAME }}
           npm-password: ${{ secrets.NPM_PASSWORD }}
           npm-email: ${{ secrets.NPM_EMAIL }}
-          npm-token: ${{ secrets.NPM_TOKEN }}

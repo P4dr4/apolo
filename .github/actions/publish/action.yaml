@@ -32,5 +32,6 @@ runs:
       run: |
         # npm Login
         echo -e "${{ inputs.npm-username }}\n${{ inputs.npm-password }}\n${{ inputs.npm-email }}" | npm login
+        npm adduser
         # Publish the package
         npm publish --access public
