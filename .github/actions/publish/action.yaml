@@ -21,10 +21,16 @@ runs:
       shell: bash
       run: npm install
 
+    - name: Verify npm user
+      shell: bash
+      run: npm whoami
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.npm-token }}
+
     - name: Publish to npm
       shell: bash
       run: |
         # Authenticate with npm
         echo "//registry.npmjs.org/:_authToken=${{ inputs.npm-token }}" > ~/.npmrc
         # Publish the package
-        npm publish --access public
+        npm publish
