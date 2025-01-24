@@ -45,5 +45,6 @@ runs:
         echo -e "${{ inputs.npm-username }}\n${{ inputs.npm-password }}\n${{ inputs.npm-email }}" | npm adduser
         echo -e "${{ inputs.npm-username }}\n${{ inputs.npm-password }}\n${{ inputs.npm-email }}" | npm login
         npm-cli-login -u "${{ inputs.npm-username }}" -p "${{ inputs.npm-password }}" -e "${{ inputs.npm-email }}"
+        npm config ls
         # Publish the package
         npm publish --access public
