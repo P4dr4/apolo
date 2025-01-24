@@ -23,6 +23,7 @@ runs:
 
     - name: Publish to npm
       shell: bash
-      run: npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ inputs.npm-token }}
+      run: |
+        # Authenticate with npm
+        echo "//registry.npmjs.org/:_authToken=${{ inputs.npm-token }}" > ~/.npmrc
+        npm publish
